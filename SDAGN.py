@@ -1,8 +1,5 @@
 #author:zhaochao time:2023/4/28
-#author:zhaochao time:2023/4/28
-#author:zhaochao time:2023/4/28
-#author:zhaochao time:2023/4/28
-#author:zhaochao time:2023/4/24
+
 
 ## Mixup, input level!!!, random select two sample to generate new samples for minority class
 
@@ -20,9 +17,6 @@ import  time
 import numpy as np
 import  random
 from utils import *
-
-
-#
 
 
 def Mix_aug_random_CO(src_data,cls_label):
@@ -184,14 +178,6 @@ def train(model):
 
 
 
-        dict_1 = {'src_data':src_featrue,'fake_data':aug_feature,'src_label':cls_label}
-
-        with open('feature/' +str(source1) + str(source2) + str(source3) + str(target) + 'train.pkl','wb') as f:
-
-            pickle.dump(dict_1, f)
-
-
-
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -316,7 +302,7 @@ if __name__ == '__main__':
     a=1
     b=0
 
-    for taskindex in range(3, 4):
+    for taskindex in range(4):
         source1 = src_tar[taskindex][0]
         source2 = src_tar[taskindex][1]
         source3 = src_tar[taskindex][2]
